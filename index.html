@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Static Resume Builder</h1>
+  </header>
+  <main>
+    <!-- Contact Information -->
+    <section>
+      <h2>Contact Information</h2>
+      <div class="form-group">
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" placeholder="Enter your full name">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number">
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="linkedin">LinkedIn Profile:</label>
+        <input type="url" id="linkedin" placeholder="Enter LinkedIn URL (optional)">
+      </div>
+      <div class="form-group">
+        <label for="github">GitHub or Portfolio:</label>
+        <input type="url" id="github" placeholder="Enter GitHub/Portfolio URL (optional)">
+      </div>
+      <div class="form-group">
+        <label for="website">Personal Website:</label>
+        <input type="url" id="website" placeholder="Enter Personal Website URL (optional)">
+      </div>
+    </section>
+
+    <!-- Resume Summary -->
+    <section>
+      <h2>Resume Summary or Objective</h2>
+      <div class="form-group">
+        <label for="summary">Summary:</label>
+        <textarea id="summary" placeholder="Write a brief career summary"></textarea>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h2>Skills</h2>
+      <div class="form-group">
+        <label for="skills">Skills:</label>
+        <textarea id="skills" placeholder="List your skills (e.g., JavaScript, React, Communication)"></textarea>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="form-group">
+        <label for="experience">Experience:</label>
+        <textarea id="experience" placeholder="List your job roles and accomplishments"></textarea>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="form-group">
+        <label for="education">Education:</label>
+        <textarea id="education" placeholder="List your education details"></textarea>
+      </div>
+    </section>
+
+    <!-- Certifications & Training -->
+    <section>
+      <h2>Certifications & Training</h2>
+      <div class="form-group">
+        <label for="certifications">Certifications:</label>
+        <textarea id="certifications" placeholder="List relevant certifications"></textarea>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2>Projects</h2>
+      <div class="form-group">
+        <label for="projects">Projects:</label>
+        <textarea id="projects" placeholder="Describe your projects and their outcomes"></textarea>
+      </div>
+    </section>
+
+    <!-- Additional Sections -->
+    <section>
+      <h2>Languages</h2>
+      <div class="form-group">
+        <label for="languages">Languages:</label>
+        <textarea id="languages" placeholder="List languages and proficiency levels"></textarea>
+      </div>
+      <h2>Hobbies & Interests</h2>
+      <div class="form-group">
+        <label for="hobbies">Hobbies:</label>
+        <textarea id="hobbies" placeholder="List your hobbies (optional)"></textarea>
+      </div>
+    </section>
+
+    <button id="generate-resume">Generate Resume</button>
+  </main>
+  <footer>
+    <p>&copy; 2024 Static Resume Builder. All Rights Reserved.</p>
+  </footer>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
