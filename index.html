@@ -1,118 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Static Resume Builder</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Static Resume Builder</h1>
-  </header>
-  <main>
-    <!-- Contact Information -->
-    <section>
-      <h2>Contact Information</h2>
-      <div class="form-group">
-        <label for="full-name">Full Name:</label>
-        <input type="text" id="full-name" placeholder="Enter your full name">
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" placeholder="Enter your phone number">
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" placeholder="Enter your email">
-      </div>
-      <div class="form-group">
-        <label for="linkedin">LinkedIn Profile:</label>
-        <input type="url" id="linkedin" placeholder="Enter LinkedIn URL (optional)">
-      </div>
-      <div class="form-group">
-        <label for="github">GitHub or Portfolio:</label>
-        <input type="url" id="github" placeholder="Enter GitHub/Portfolio URL (optional)">
-      </div>
-      <div class="form-group">
-        <label for="website">Personal Website:</label>
-        <input type="url" id="website" placeholder="Enter Personal Website URL (optional)">
-      </div>
-    </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Resume Builder</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
 
-    <!-- Resume Summary -->
-    <section>
-      <h2>Resume Summary or Objective</h2>
-      <div class="form-group">
-        <label for="summary">Summary:</label>
-        <textarea id="summary" placeholder="Write a brief career summary"></textarea>
-      </div>
-    </section>
+      .resume-builder-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-    <!-- Skills -->
-    <section>
-      <h2>Skills</h2>
-      <div class="form-group">
-        <label for="skills">Skills:</label>
-        <textarea id="skills" placeholder="List your skills (e.g., JavaScript, React, Communication)"></textarea>
-      </div>
-    </section>
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-    <!-- Professional Experience -->
-    <section>
-      <h2>Professional Experience</h2>
-      <div class="form-group">
-        <label for="experience">Experience:</label>
-        <textarea id="experience" placeholder="List your job roles and accomplishments"></textarea>
-      </div>
-    </section>
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #007bff;
+      }
 
-    <!-- Education -->
-    <section>
-      <h2>Education</h2>
-      <div class="form-group">
-        <label for="education">Education:</label>
-        <textarea id="education" placeholder="List your education details"></textarea>
-      </div>
-    </section>
+      .content section {
+        margin-bottom: 20px;
+      }
 
-    <!-- Certifications & Training -->
-    <section>
-      <h2>Certifications & Training</h2>
-      <div class="form-group">
-        <label for="certifications">Certifications:</label>
-        <textarea id="certifications" placeholder="List relevant certifications"></textarea>
-      </div>
-    </section>
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+        color: #333;
+      }
 
-    <!-- Projects -->
-    <section>
-      <h2>Projects</h2>
-      <div class="form-group">
-        <label for="projects">Projects:</label>
-        <textarea id="projects" placeholder="Describe your projects and their outcomes"></textarea>
-      </div>
-    </section>
+      input,
+      textarea,
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
 
-    <!-- Additional Sections -->
-    <section>
-      <h2>Languages</h2>
-      <div class="form-group">
-        <label for="languages">Languages:</label>
-        <textarea id="languages" placeholder="List languages and proficiency levels"></textarea>
-      </div>
-      <h2>Hobbies & Interests</h2>
-      <div class="form-group">
-        <label for="hobbies">Hobbies:</label>
-        <textarea id="hobbies" placeholder="List your hobbies (optional)"></textarea>
-      </div>
-    </section>
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
 
-    <button id="generate-resume">Generate Resume</button>
-  </main>
-  <footer>
-    <p>&copy; 2024 Static Resume Builder. All Rights Reserved.</p>
-  </footer>
-  <script src="script.js" type="module"></script>
-</body>
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul li {
+        background: #f4f4f4;
+        margin: 5px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      .image-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: none;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-builder-container">
+      <header class="header">
+        <h1>Static Resume Builder</h1>
+      </header>
+
+      <main class="content">
+        <section class="image-section">
+          <h2>Profile Picture</h2>
+          <div class="image-container">
+            <img id="profile-image" alt="Profile Picture" />
+            <input type="file" id="upload-image" accept="image/*" />
+          </div>
+        </section>
+
+        <section class="contact-info">
+          <h2>Contact Information</h2>
+          <input type="text" placeholder="Enter your name" />
+          <input type="email" placeholder="Enter your email" />
+          <input type="tel" placeholder="Enter your phone number" />
+        </section>
+
+        <section class="resume-summary">
+          <h2>About Me</h2>
+          <textarea placeholder="Write a brief summary or objective"></textarea>
+        </section>
+
+        <section class="professional-experience">
+          <h2>Professional Experience</h2>
+          <textarea placeholder="Add your professional experience"></textarea>
+          <button id="add-experience-btn">Add Experience</button>
+          <ul id="experience-list"></ul>
+        </section>
+
+        <section class="education">
+          <h2>Education</h2>
+          <textarea placeholder="Add your education details"></textarea>
+          <button id="add-education-btn">Add Education</button>
+          <ul id="education-list"></ul>
+        </section>
+
+        <section class="certifications">
+          <h2>Certifications & Training</h2>
+          <textarea placeholder="Add your certifications"></textarea>
+          <button id="add-certification-btn">Add Certification</button>
+          <ul id="certification-list"></ul>
+        </section>
+
+        <section class="skills">
+          <h2>Skills</h2>
+          <input type="text" placeholder="Add a skill" />
+          <button id="add-skill-btn">Add Skill</button>
+          <ul id="skills-list"></ul>
+          <button id="toggle-skills-btn">Toggle Skills</button>
+        </section>
+
+        <section class="projects">
+          <h2>Projects</h2>
+          <textarea placeholder="Add your projects"></textarea>
+          <button id="add-project-btn">Add Project</button>
+          <ul id="project-list"></ul>
+        </section>
+
+        <section class="languages-hobbies">
+          <h2>Languages, Hobbies & Interests</h2>
+          <input type="text" placeholder="Add a language, hobby, or interest" />
+          <button id="add-hobby-btn">Add Hobby/Interest</button>
+          <ul id="hobby-list"></ul>
+        </section>
+
+        <button id="generate-resume-btn">Generate Resume</button>
+      </main>
+    </div>
+
+    <footer>
+      <p style="text-align: center; margin-top: 20px;">Created by Hasnain Ahmed</p>
+    </footer>
+
+    <!-- Link to the compiled JavaScript -->
+    <script src="script.js" defer></script>
+  </body>
 </html>
